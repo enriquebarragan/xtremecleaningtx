@@ -1,11 +1,398 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const pageTitle = "Xtreme Cleaning TX | Professional Cleaning Services in Austin & Central Texas";
+const description =
+  "Xtreme Cleaning TX is a bonded and insured cleaning company delivering spotless residential, commercial, and rental turnovers throughout Austin and Central Texas.";
+const canonical = "https://www.xtemecleaningtx.com/";
+const image = "https://dummyimage.com/1200x630/0f766e/ffffff&text=Xtreme+Cleaning+TX";
+
+const heroHighlights = [
+  "Insured & background-checked technicians",
+  "Eco-friendly, hospital-grade supplies",
+  "Flexible scheduling with satisfaction guarantee",
+];
+
+const heroBenefits = [
+  "Tailored checklists for every space we maintain",
+  "Automated reminders and photo updates after each visit",
+  "Locally owned team that treats your home like our own",
+];
+
+const stats = [
+  { value: "12+", label: "Years keeping Central Texas spotless" },
+  { value: "97%", label: "Clients who rebook after the first visit" },
+  { value: "48hr", label: "Satisfaction guarantee response time" },
+  { value: "5-star", label: "Average rating across Google and Yelp" },
+];
+
+const services = [
+  {
+    title: "Recurring Home Cleaning",
+    description: "Keep your home guest-ready with recurring weekly, bi-weekly, or monthly visits tailored to your priorities.",
+    items: [
+      "Kitchen, bath, and high-touch surface sanitizing",
+      "Detailed dusting and floor care every visit",
+      "Green products safe for kids and pets",
+    ],
+  },
+  {
+    title: "Deep Cleaning & Move-In/Out",
+    description: "Perfect for seasonal refreshes, big events, or preparing a property for its next resident.",
+    items: [
+      "Hand-washing baseboards, trim, and doors",
+      "Appliance interiors and cabinet wipe-downs",
+      "Hard-to-reach dusting and mineral deposit removal",
+    ],
+  },
+  {
+    title: "Short-Term Rental Turnovers",
+    description: "Polished turnovers that earn five-star reviews for Airbnbs, VRBOs, and executive rentals.",
+    items: [
+      "Staging, restocking, and laundry services",
+      "Damage checklists with photo documentation",
+      "Fast same-day scheduling between stays",
+    ],
+  },
+  {
+    title: "Office & Commercial Cleaning",
+    description: "Reliable janitorial solutions for offices, boutiques, medical suites, and coworking spaces.",
+    items: [
+      "Daytime or after-hours availability",
+      "HEPA vacuuming and disinfecting of shared zones",
+      "Custom protocols aligned with your compliance needs",
+    ],
+  },
+  {
+    title: "Post-Construction Detail",
+    description: "Remove dust from renovation or build projects with meticulous multi-stage cleaning.",
+    items: [
+      "Fine dust removal on every surface",
+      "Window, track, and fixture detailing",
+      "Jobsite debris haul-away coordination",
+    ],
+  },
+  {
+    title: "One-Time Special Projects",
+    description: "Hosting guests or tackling a spring refresh? Our team can handle the heavy lifting for you.",
+    items: [
+      "Inside cabinets, pantries, and closets",
+      "Upholstery and mattress sanitizing",
+      "Outdoor kitchen and patio tidying",
+    ],
+  },
+];
+
+const processSteps = [
+  {
+    title: "Schedule a walkthrough",
+    copy: "Share your goals online or by phone and we will evaluate your space virtually or in person within 48 hours.",
+  },
+  {
+    title: "Approve a tailored checklist",
+    copy: "Receive transparent pricing, recommended frequency, and the supplies we will bring for your specific surfaces.",
+  },
+  {
+    title: "Enjoy consistent sparkle",
+    copy: "Our uniformed crew arrives on time with eco-friendly tools, following the same detailed checklist every visit.",
+  },
+  {
+    title: "Review & refine",
+    copy: "You will get a quick post-clean report. Need an adjustment? We update your checklist and guarantee a redo within 48 hours.",
+  },
+];
+
+const testimonials = [
+  {
+    quote: "They deep cleaned our home before we welcomed our newborn and now handle our bi-weekly upkeep. Their team is punctual, respectful, and incredibly thorough.",
+    name: "Samantha L.",
+    location: "South Austin",
+  },
+  {
+    quote: "As a property manager running five STRs, I rely on Xtreme Cleaning TX for fast turnovers and restocks. Guests constantly mention how spotless everything is.",
+    name: "Daniel R.",
+    location: "East Austin",
+  },
+  {
+    quote: "Our law office shines every Monday morning thanks to their after-hours crew. Communication is proactive and they always go the extra mile.",
+    name: "Morgan P.",
+    location: "Downtown Austin",
+  },
+];
+
+const serviceAreas = [
+  "Austin",
+  "Round Rock",
+  "Cedar Park",
+  "Georgetown",
+  "Leander",
+  "Pflugerville",
+  "Lakeway",
+  "Buda & Kyle",
+];
+
+const faqs = [
+  {
+    question: "Are your cleaners insured and background checked?",
+    answer:
+      "Absolutely. Every technician is a W-2 employee who completes background screenings, ongoing training, and is covered by our liability and workers' compensation insurance.",
+  },
+  {
+    question: "Do I need to supply any equipment or products?",
+    answer:
+      "No. Our teams arrive with commercial-grade vacuums, microfiber systems, and EPA Safer Choice products. Have a preferred product? We are happy to use it upon request.",
+  },
+  {
+    question: "What if I need to reschedule or skip a cleaning?",
+    answer:
+      "Life happens! Let us know 24 hours in advance and we will happily reschedule. There are never cancellation fees for schedule changes made before the crew arrives.",
+  },
+  {
+    question: "Can you accommodate special requests or add-ons?",
+    answer:
+      "Yes. From oven interiors to patio furniture, simply add the request when you book or message your account manager and we will build it into your visit.",
+  },
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${canonical}#business`,
+  name: "Xtreme Cleaning TX",
+  image,
+  logo: "https://dummyimage.com/512x512/0f766e/ffffff&text=Xtreme+Cleaning+TX",
+  description,
+  url: canonical,
+  telephone: "+1-512-555-0198",
+  email: "hello@xtemecleaningtx.com",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "123 Clean Sweep Dr",
+    addressLocality: "Austin",
+    addressRegion: "TX",
+    postalCode: "78701",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 30.2672,
+    longitude: -97.7431,
+  },
+  areaServed: serviceAreas.map((name) => ({ "@type": "City", name })),
+  sameAs: [
+    "https://www.facebook.com/xtemecleaningtx",
+    "https://www.instagram.com/xtemecleaningtx",
+    "https://www.linkedin.com/company/xtemecleaningtx",
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday"],
+      opens: "09:00",
+      closes: "14:00",
+    },
+  ],
+  makesOffer: services.map((service) => ({
+    "@type": "Offer",
+    name: service.title,
+    description: service.description,
+    availability: "https://schema.org/InStock",
+  })),
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "128",
+  },
+  serviceType: "Residential and commercial cleaning",
+};
 ---
+<Layout title={pageTitle} description={description} canonical={canonical} image={image} structuredData={structuredData}>
+  <section class="hero" id="hero">
+    <div class="container hero__grid">
+      <div>
+        <p class="eyebrow">Trusted in Central Texas</p>
+        <h1>Professional cleaning that makes every room shine.</h1>
+        <p class="lead">
+          Xtreme Cleaning TX is a bonded, insured, and locally owned team delivering spotless results for busy families,
+          business owners, and rental hosts across Austin.
+        </p>
+        <div class="cta-group">
+          <a class="btn" href="#contact">Book a free estimate</a>
+          <a class="btn secondary" href="tel:+15125550198">Call (512) 555-0198</a>
+        </div>
+        <ul class="badge-list">
+          {heroHighlights.map((item) => (
+            <li class="badge">{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="hero-card" aria-label="Reasons clients choose Xtreme Cleaning TX">
+        <h2>Why homeowners trust us</h2>
+        <ul>
+          {heroBenefits.map((benefit) => (
+            <li>{benefit}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<Layout>
-	<Welcome />
+  <section class="stats-strip" aria-label="Company highlights">
+    <div class="container stats-grid">
+      {stats.map((stat) => (
+        <div class="stat">
+          <span class="stat__value">{stat.value}</span>
+          <span class="stat__label">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container section-heading">
+      <h2>Cleaning services built around your lifestyle</h2>
+      <p>Choose a reliable plan that matches your space. Every checklist is handcrafted for your goals and budget.</p>
+    </div>
+    <div class="container service-grid">
+      {services.map((service) => (
+        <article class="service-card">
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          <ul>
+            {service.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container section-heading">
+      <h2>How our cleaning process works</h2>
+      <p>Booking is simple and transparent from the first walkthrough to the finishing touches.</p>
+    </div>
+    <div class="container">
+      <ol class="process-list">
+        {processSteps.map((step, index) => (
+          <li class="process-step">
+            <span class="step-number">{`${index + 1}`.padStart(2, "0")}</span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.copy}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container section-heading">
+      <h2>Loved by homeowners and businesses across Austin</h2>
+      <p>Clients keep coming back to Xtreme Cleaning TX because we sweat every detail on every visit.</p>
+    </div>
+    <div class="container testimonial-grid">
+      {testimonials.map((testimonial) => (
+        <figure class="testimonial-card">
+          <blockquote class="testimonial-quote">&ldquo;{testimonial.quote}&rdquo;</blockquote>
+          <figcaption class="testimonial-author">
+            {testimonial.name}
+            <span class="testimonial-location"> - {testimonial.location}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="service-areas" id="areas">
+    <div class="container section-heading">
+      <h2>Serving Austin and the surrounding communities</h2>
+      <p>If you are in Central Texas, chances are we are already cleaning near you.</p>
+    </div>
+    <div class="container areas-card">
+      <p>We proudly bring our spotless finish to:</p>
+      <ul>
+        {serviceAreas.map((area) => (
+          <li>{area}</li>
+        ))}
+      </ul>
+      <p class="note">Don't see your neighborhood? Reach out and we'll confirm availability within minutes.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container section-heading">
+      <h2>Frequently asked questions</h2>
+      <p>Transparent pricing, reliable cleaners, and no surprises.</p>
+    </div>
+    <div class="container faq-list">
+      {faqs.map((faq) => (
+        <details>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="container contact-card">
+      <div>
+        <h2>Ready for a spotless space?</h2>
+        <p>Share a few details and we will build a custom cleaning plan with transparent pricing.</p>
+        <ul class="contact-options">
+          <li><a href="tel:+15125550198">Call or text (512) 555-0198</a></li>
+          <li><a href="mailto:hello@xtemecleaningtx.com">Email hello@xtemecleaningtx.com</a></li>
+          <li>Serving homes, offices, and short-term rentals in Central Texas</li>
+        </ul>
+      </div>
+      <form class="contact-form" method="post" action="https://formsubmit.co/hello@xtemecleaningtx.com">
+        <input type="hidden" name="_subject" value="New cleaning request" />
+        <input type="hidden" name="_captcha" value="false" />
+        <label>
+          Full Name
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+        <label>
+          Phone
+          <input type="tel" name="phone" autocomplete="tel" />
+        </label>
+        <label>
+          Service Type
+          <select name="service" required>
+            <option value="">Select a service</option>
+            {services.map((service) => (
+              <option value={service.title}>{service.title}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Preferred Timing
+          <input type="text" name="timing" placeholder="e.g., Weekday mornings" />
+        </label>
+        <label>
+          Tell us about your space
+          <textarea name="message" placeholder="Square footage, rooms, priorities..." required></textarea>
+        </label>
+        <button class="btn" type="submit">Request my estimate</button>
+        <small>We respond within one business day. No contracts required.</small>
+      </form>
+    </div>
+  </section>
 </Layout>
+
+
+

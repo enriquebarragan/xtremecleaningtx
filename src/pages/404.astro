@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Page Not Found | Xtreme Cleaning TX";
+const description = "Sorry, we could not find that page. Explore our professional cleaning services in Austin and Central Texas.";
+const canonical = "https://www.xtemecleaningtx.com/404";
+---
+<Layout title={title} description={description} canonical={canonical}>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <p class="eyebrow">Error 404</p>
+        <h1>We just cleaned this page away.</h1>
+        <p class="lead">
+          The page you are looking for may have moved or no longer exists. Head back to the homepage to keep exploring
+          our services.
+        </p>
+        <div class="cta-group">
+          <a class="btn" href="/">Return home</a>
+          <a class="btn secondary" href="/#contact">Request a cleaning</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+

@@ -1,22 +1,105 @@
-<!doctype html>
+---
+import "../styles/global.css";
+
+const {
+  title = "Xtreme Cleaning TX | Professional Cleaning Services in Central Texas",
+  description = "Xtreme Cleaning TX delivers meticulous residential and commercial cleaning for homes and businesses across Central Texas.",
+  canonical = "https://www.xtemecleaningtx.com/",
+  image = "https://dummyimage.com/1200x630/0f766e/ffffff&text=Xtreme+Cleaning+TX",
+  structuredData = null,
+} = Astro.props;
+
+const baseUrl = "https://www.xtemecleaningtx.com";
+const canonicalUrl = canonical ?? `${baseUrl}/`;
+const ogImage = image.startsWith("http") ? image : `${baseUrl}${image}`;
+---
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0f766e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Sparkling clean kitchen maintained by Xtreme Cleaning TX" />
+    <meta property="og:site_name" content="Xtreme Cleaning TX" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    {structuredData && (
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
+    )}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header__inner">
+        <a class="brand" href="/">Xtreme Cleaning TX</a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">How it Works</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a class="nav-cta" href="#contact">Get a Quote</a></li>
+          </ul>
+        </nav>
+        <a class="header-phone" href="tel:+15125550198">(512) 555-0198</a>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container footer__grid">
+        <div>
+          <h2>About Xtreme Cleaning TX</h2>
+          <p>
+            We deliver meticulous residential and commercial cleaning in Austin and throughout Central Texas. Our
+            mission is to give you back your time with service you can trust.
+          </p>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul class="footer-list">
+            <li><a href="tel:+15125550198">Call (512) 555-0198</a></li>
+            <li><a href="mailto:hello@xtemecleaningtx.com">hello@xtemecleaningtx.com</a></li>
+            <li>Weekdays 8am - 6pm, Saturdays 9am - 2pm</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Service Areas</h2>
+          <ul class="footer-list">
+            <li>Austin</li>
+            <li>Round Rock</li>
+            <li>Cedar Park</li>
+            <li>Georgetown</li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-credit">&copy; {new Date().getFullYear()} Xtreme Cleaning TX. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+
+
+
