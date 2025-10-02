@@ -1,189 +1,115 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { services as serviceList } from "../data/services.js";
+import { locations as locationList } from "../data/locations.js";
 
-const pageTitle = "Xtreme Cleaning TX | Professional Cleaning Services in Austin & Central Texas";
+const pageTitle = "Xtreme Cleaning | Luxury Cleaning Services in the Dallas-Fort Worth Metroplex";
 const description =
-  "Xtreme Cleaning TX is a bonded and insured cleaning company delivering spotless residential, commercial, and rental turnovers throughout Austin and Central Texas.";
+  "Xtreme Cleaning is the trusted luxury cleaning partner for residences, rentals, and commercial spaces across Dallas, Fort Worth, and the greater DFW Metroplex.";
 const canonical = "https://www.xtemecleaningtx.com/";
-const image = "https://dummyimage.com/1200x630/0f766e/ffffff&text=Xtreme+Cleaning+TX";
+const image = "https://dummyimage.com/1200x630/0a1f44/ffffff&text=Xtreme+Cleaning";
 
 const heroHighlights = [
-  "Insured & background-checked technicians",
-  "Eco-friendly, hospital-grade supplies",
-  "Flexible scheduling with satisfaction guarantee",
+  "Bonded, insured, and background-checked cleaning specialists",
+  "Concierge scheduling with dedicated account support",
+  "Premium, eco-forward products safe for families and finishes",
 ];
 
 const heroBenefits = [
-  "Tailored checklists for every space we maintain",
-  "Automated reminders and photo updates after each visit",
-  "Locally owned team that treats your home like our own",
+  "Tailored luxury checklists for residences, rentals, and offices",
+  "Photo-documented visits with proactive communication",
+  "Dallas-Fort Worth crews who respect your time and privacy",
 ];
 
 const stats = [
-  { value: "12+", label: "Years keeping Central Texas spotless" },
+  { value: "12+", label: "Years elevating spaces across DFW" },
   { value: "97%", label: "Clients who rebook after the first visit" },
-  { value: "48hr", label: "Satisfaction guarantee response time" },
-  { value: "5-star", label: "Average rating across Google and Yelp" },
-];
-
-const services = [
-  {
-    title: "Recurring Home Cleaning",
-    description: "Keep your home guest-ready with recurring weekly, bi-weekly, or monthly visits tailored to your priorities.",
-    items: [
-      "Kitchen, bath, and high-touch surface sanitizing",
-      "Detailed dusting and floor care every visit",
-      "Green products safe for kids and pets",
-    ],
-  },
-  {
-    title: "Deep Cleaning & Move-In/Out",
-    description: "Perfect for seasonal refreshes, big events, or preparing a property for its next resident.",
-    items: [
-      "Hand-washing baseboards, trim, and doors",
-      "Appliance interiors and cabinet wipe-downs",
-      "Hard-to-reach dusting and mineral deposit removal",
-    ],
-  },
-  {
-    title: "Short-Term Rental Turnovers",
-    description: "Polished turnovers that earn five-star reviews for Airbnbs, VRBOs, and executive rentals.",
-    items: [
-      "Staging, restocking, and laundry services",
-      "Damage checklists with photo documentation",
-      "Fast same-day scheduling between stays",
-    ],
-  },
-  {
-    title: "Office & Commercial Cleaning",
-    description: "Reliable janitorial solutions for offices, boutiques, medical suites, and coworking spaces.",
-    items: [
-      "Daytime or after-hours availability",
-      "HEPA vacuuming and disinfecting of shared zones",
-      "Custom protocols aligned with your compliance needs",
-    ],
-  },
-  {
-    title: "Post-Construction Detail",
-    description: "Remove dust from renovation or build projects with meticulous multi-stage cleaning.",
-    items: [
-      "Fine dust removal on every surface",
-      "Window, track, and fixture detailing",
-      "Jobsite debris haul-away coordination",
-    ],
-  },
-  {
-    title: "One-Time Special Projects",
-    description: "Hosting guests or tackling a spring refresh? Our team can handle the heavy lifting for you.",
-    items: [
-      "Inside cabinets, pantries, and closets",
-      "Upholstery and mattress sanitizing",
-      "Outdoor kitchen and patio tidying",
-    ],
-  },
-];
-
-const processSteps = [
-  {
-    title: "Schedule a walkthrough",
-    copy: "Share your goals online or by phone and we will evaluate your space virtually or in person within 48 hours.",
-  },
-  {
-    title: "Approve a tailored checklist",
-    copy: "Receive transparent pricing, recommended frequency, and the supplies we will bring for your specific surfaces.",
-  },
-  {
-    title: "Enjoy consistent sparkle",
-    copy: "Our uniformed crew arrives on time with eco-friendly tools, following the same detailed checklist every visit.",
-  },
-  {
-    title: "Review & refine",
-    copy: "You will get a quick post-clean report. Need an adjustment? We update your checklist and guarantee a redo within 48 hours.",
-  },
+  { value: "48hr", label: "Guaranteed response for service refinements" },
+  { value: "5-star", label: "Average rating from homeowners and partners" },
 ];
 
 const testimonials = [
   {
-    quote: "They deep cleaned our home before we welcomed our newborn and now handle our bi-weekly upkeep. Their team is punctual, respectful, and incredibly thorough.",
-    name: "Samantha L.",
-    location: "South Austin",
+    quote:
+      "Our Uptown condo has never looked better. The team understands luxury surfaces and leaves thoughtful touches every visit.",
+    name: "Taylor M.",
+    location: "Dallas - Uptown",
   },
   {
-    quote: "As a property manager running five STRs, I rely on Xtreme Cleaning TX for fast turnovers and restocks. Guests constantly mention how spotless everything is.",
-    name: "Daniel R.",
-    location: "East Austin",
+    quote:
+      "Managing three Airbnbs near AT&T Stadium is effortless with Xtreme Cleaning. Turnovers are spotless and always on time.",
+    name: "Jordan P.",
+    location: "Arlington",
   },
   {
-    quote: "Our law office shines every Monday morning thanks to their after-hours crew. Communication is proactive and they always go the extra mile.",
-    name: "Morgan P.",
-    location: "Downtown Austin",
+    quote:
+      "They maintain our Fort Worth office after-hours with zero disruption. Communication is proactive and professional.",
+    name: "Elizabeth R.",
+    location: "Fort Worth",
   },
-];
-
-const serviceAreas = [
-  "Austin",
-  "Round Rock",
-  "Cedar Park",
-  "Georgetown",
-  "Leander",
-  "Pflugerville",
-  "Lakeway",
-  "Buda & Kyle",
 ];
 
 const faqs = [
   {
-    question: "Are your cleaners insured and background checked?",
+    question: "Do you serve my part of the Dallas-Fort Worth Metroplex?",
     answer:
-      "Absolutely. Every technician is a W-2 employee who completes background screenings, ongoing training, and is covered by our liability and workers' compensation insurance.",
+      "Yes. Our crews are based throughout Dallas, Fort Worth, Arlington, Plano, Frisco, McKinney, Southlake, Denton, Irving, Richardson, and nearby suburbs. View our Locations page for details.",
   },
   {
-    question: "Do I need to supply any equipment or products?",
+    question: "Can you accommodate high-security buildings or estate properties?",
     answer:
-      "No. Our teams arrive with commercial-grade vacuums, microfiber systems, and EPA Safer Choice products. Have a preferred product? We are happy to use it upon request.",
+      "Absolutely. Our specialists undergo background checks, NDA training, and key-holder protocols. We coordinate with estate managers, concierges, and building teams to align with your security policies.",
   },
   {
-    question: "What if I need to reschedule or skip a cleaning?",
+    question: "Do you provide custom product requests or green cleaning?",
     answer:
-      "Life happens! Let us know 24 hours in advance and we will happily reschedule. There are never cancellation fees for schedule changes made before the crew arrives.",
+      "We stock premium, eco-forward solutions by default and are happy to source specialty products or use items you supply to protect designer finishes and allergy-sensitive spaces.",
   },
   {
-    question: "Can you accommodate special requests or add-ons?",
+    question: "How soon can you start a new project or recurring service?",
     answer:
-      "Yes. From oven interiors to patio furniture, simply add the request when you book or message your account manager and we will build it into your visit.",
+      "Most projects can be scheduled within one week. For move-ins, construction cleans, or event prep, share your timeline and we will fast-track availability.",
   },
 ];
+
+const primaryButton =
+  "inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-brand-blue/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold";
+const secondaryButton =
+  "inline-flex items-center justify-center rounded-full border border-brand-blue/40 bg-white px-5 py-3 text-sm font-semibold text-brand-blue shadow-sm transition hover:border-brand-blue hover:bg-brand-blue/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue";
+const inputClasses =
+  "w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 shadow-sm transition focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/40";
+const textareaClasses = `${inputClasses} min-h-[160px] resize-y`;
 
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${canonical}#business`,
-  name: "Xtreme Cleaning TX",
+  name: "Xtreme Cleaning",
   image,
-  logo: "https://dummyimage.com/512x512/0f766e/ffffff&text=Xtreme+Cleaning+TX",
+  logo: "https://dummyimage.com/512x512/0a1f44/ffffff&text=Xtreme+Cleaning",
   description,
   url: canonical,
   telephone: "+1-512-555-0198",
   email: "hello@xtemecleaningtx.com",
-  priceRange: "$$",
+  priceRange: "$$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "123 Clean Sweep Dr",
-    addressLocality: "Austin",
+    streetAddress: "123 Crescent Ave",
+    addressLocality: "Dallas",
     addressRegion: "TX",
-    postalCode: "78701",
+    postalCode: "75201",
     addressCountry: "US",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 30.2672,
-    longitude: -97.7431,
+    latitude: 32.7767,
+    longitude: -96.797,
   },
-  areaServed: serviceAreas.map((name) => ({ "@type": "City", name })),
+  areaServed: locationList.map((location) => ({ "@type": "City", name: location.name })),
   sameAs: [
-    "https://www.facebook.com/xtemecleaningtx",
-    "https://www.instagram.com/xtemecleaningtx",
-    "https://www.linkedin.com/company/xtemecleaningtx",
+    "https://www.facebook.com/xtremecleaningdfw",
+    "https://www.instagram.com/xtremecleaningdfw",
+    "https://www.linkedin.com/company/xtremecleaning",
   ],
   openingHoursSpecification: [
     {
@@ -199,200 +125,345 @@ const structuredData = {
       closes: "14:00",
     },
   ],
-  makesOffer: services.map((service) => ({
+  makesOffer: serviceList.map((service) => ({
     "@type": "Offer",
     name: service.title,
-    description: service.description,
+    description: service.seoDescription,
     availability: "https://schema.org/InStock",
   })),
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "128",
-  },
-  serviceType: "Residential and commercial cleaning",
+  serviceType: "Luxury residential and commercial cleaning",
 };
 ---
 <Layout title={pageTitle} description={description} canonical={canonical} image={image} structuredData={structuredData}>
-  <section class="hero" id="hero">
-    <div class="container hero__grid">
-      <div>
-        <p class="eyebrow">Trusted in Central Texas</p>
-        <h1>Professional cleaning that makes every room shine.</h1>
-        <p class="lead">
-          Xtreme Cleaning TX is a bonded, insured, and locally owned team delivering spotless results for busy families,
-          business owners, and rental hosts across Austin.
+  <section id="hero" class="bg-white">
+    <div class="mx-auto grid w-full max-w-6xl gap-12 px-6 py-20 sm:px-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+      <div class="space-y-8">
+        <p class="text-xs font-medium uppercase tracking-[0.35em] text-brand-gold">Serving the Dallas-Fort Worth Metroplex</p>
+        <h1 class="text-4xl font-serif font-semibold text-brand-blue md:text-5xl">
+          Elevated cleaning experiences for luxury homes, rentals, and workplaces.
+        </h1>
+        <p class="text-lg text-slate-600">
+          Xtreme Cleaning delivers concierge-level cleaning programs for busy households, discerning property managers, and
+          executive offices across the DFW area.
         </p>
-        <div class="cta-group">
-          <a class="btn" href="#contact">Book a free estimate</a>
-          <a class="btn secondary" href="tel:+15125550198">Call (512) 555-0198</a>
+        <div class="flex flex-wrap items-center gap-4">
+          <a class={primaryButton} href="#contact">Request a consultation</a>
+          <a class={secondaryButton} href="tel:+15125550198">Call (512) 555-0198</a>
         </div>
-        <ul class="badge-list">
+        <ul class="flex flex-wrap gap-3 text-sm text-brand-blue/80">
           {heroHighlights.map((item) => (
-            <li class="badge">{item}</li>
+            <li class="inline-flex items-center gap-2 rounded-full bg-brand-blue/5 px-4 py-2">
+              <span class="h-2 w-2 rounded-full bg-brand-gold" aria-hidden="true" />
+              {item}
+            </li>
           ))}
         </ul>
       </div>
-      <div class="hero-card" aria-label="Reasons clients choose Xtreme Cleaning TX">
-        <h2>Why homeowners trust us</h2>
-        <ul>
+      <div class="h-full rounded-3xl border border-brand-blue/15 bg-brand-blue/5 p-8 shadow-glow backdrop-blur">
+        <h2 class="text-xl font-serif font-semibold text-brand-blue">Why DFW clients trust us</h2>
+        <ul class="mt-6 space-y-4 text-sm text-slate-600">
           {heroBenefits.map((benefit) => (
-            <li>{benefit}</li>
+            <li class="flex gap-3">
+              <span class="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-brand-gold" aria-hidden="true" />
+              <span>{benefit}</span>
+            </li>
           ))}
         </ul>
+        <div class="mt-8 rounded-2xl bg-white/80 p-4 text-sm text-slate-500 shadow-sm">
+          <p>
+            'Our mission is to give Dallas-Fort Worth residents peace of mind with immaculate spaces, transparent pricing,
+            and proactive care.'
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="stats-strip" aria-label="Company highlights">
-    <div class="container stats-grid">
+  <section class="bg-brand-blue text-white">
+    <div class="mx-auto grid w-full max-w-6xl gap-8 px-6 py-12 sm:px-8 sm:grid-cols-2 lg:grid-cols-4">
       {stats.map((stat) => (
-        <div class="stat">
-          <span class="stat__value">{stat.value}</span>
-          <span class="stat__label">{stat.label}</span>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center shadow-sm">
+          <span class="block text-3xl font-semibold">{stat.value}</span>
+          <span class="mt-2 block text-sm text-white/80">{stat.label}</span>
         </div>
       ))}
     </div>
   </section>
 
-  <section id="services">
-    <div class="container section-heading">
-      <h2>Cleaning services built around your lifestyle</h2>
-      <p>Choose a reliable plan that matches your space. Every checklist is handcrafted for your goals and budget.</p>
-    </div>
-    <div class="container service-grid">
-      {services.map((service) => (
-        <article class="service-card">
-          <h3>{service.title}</h3>
-          <p>{service.description}</p>
-          <ul>
-            {service.items.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        </article>
-      ))}
+  <section id="services" class="py-20">
+    <div class="mx-auto w-full max-w-6xl px-6 sm:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-serif font-semibold text-brand-blue">Cleaning services tailored to every DFW property</h2>
+        <p class="mt-4 text-base text-slate-600">
+          Explore dedicated programs for luxury residences, premium rentals, commercial suites, and bespoke one-time
+          projects.
+        </p>
+      </div>
+      <div class="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        {serviceList.map((service) => (
+          <article class="flex h-full flex-col rounded-3xl border border-brand-blue/10 bg-white p-8 shadow-glow">
+            <div class="space-y-3">
+              <h3 class="text-xl font-serif font-semibold text-brand-blue">{service.title}</h3>
+              <p class="text-sm text-slate-600">{service.description}</p>
+            </div>
+            <ul class="mt-6 space-y-3 text-sm text-slate-600">
+              {service.checklist.map((item) => (
+                <li class="flex gap-3">
+                  <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-gold" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-8">
+              <a class="text-sm font-semibold text-brand-blue hover:text-brand-gold" href={`/services/${service.slug}`}>
+                View {service.title} details
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
-  <section class="process" id="process">
-    <div class="container section-heading">
-      <h2>How our cleaning process works</h2>
-      <p>Booking is simple and transparent from the first walkthrough to the finishing touches.</p>
-    </div>
-    <div class="container">
-      <ol class="process-list">
-        {processSteps.map((step, index) => (
-          <li class="process-step">
-            <span class="step-number">{`${index + 1}`.padStart(2, "0")}</span>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{step.copy}</p>
-            </div>
-          </li>
-        ))}
+  <section id="process" class="bg-white py-20">
+    <div class="mx-auto grid w-full max-w-6xl gap-14 px-6 sm:px-8 lg:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
+      <div class="space-y-4">
+        <h2 class="text-3xl font-serif font-semibold text-brand-blue">How our white-glove process works</h2>
+        <p class="text-base text-slate-600">
+          From the first walkthrough to ongoing check-ins, we adapt every detail to your timeline, property, and privacy
+          needs.
+        </p>
+      </div>
+      <ol class="grid gap-6 sm:grid-cols-2">
+        <li class="relative flex h-full flex-col justify-between rounded-3xl border border-brand-blue/10 bg-white p-6 shadow-glow">
+          <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-brand-blue text-sm font-semibold text-white">
+            01
+          </span>
+          <div class="space-y-2">
+            <h3 class="text-lg font-serif font-semibold text-brand-blue">Schedule a consultation</h3>
+            <p class="text-sm text-slate-600">
+              Share property insights, access preferences, and priorities online or during a personal walkthrough.
+            </p>
+          </div>
+        </li>
+        <li class="relative flex h-full flex-col justify-between rounded-3xl border border-brand-blue/10 bg-white p-6 shadow-glow">
+          <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-brand-blue text-sm font-semibold text-white">
+            02
+          </span>
+          <div class="space-y-2">
+            <h3 class="text-lg font-serif font-semibold text-brand-blue">Approve a tailored program</h3>
+            <p class="text-sm text-slate-600">
+              Receive a transparent proposal outlining cadence, crew notes, and premium products selected for your finishes.
+            </p>
+          </div>
+        </li>
+        <li class="relative flex h-full flex-col justify-between rounded-3xl border border-brand-blue/10 bg-white p-6 shadow-glow">
+          <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-brand-blue text-sm font-semibold text-white">
+            03
+          </span>
+          <div class="space-y-2">
+            <h3 class="text-lg font-serif font-semibold text-brand-blue">Enjoy consistent sparkle</h3>
+            <p class="text-sm text-slate-600">
+              Your dedicated crew arrives on time, follows a room-by-room checklist, and provides post-visit notes and photos.
+            </p>
+          </div>
+        </li>
+        <li class="relative flex h-full flex-col justify-between rounded-3xl border border-brand-blue/10 bg-white p-6 shadow-glow">
+          <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-brand-blue text-sm font-semibold text-white">
+            04
+          </span>
+          <div class="space-y-2">
+            <h3 class="text-lg font-serif font-semibold text-brand-blue">Refine anytime</h3>
+            <p class="text-sm text-slate-600">
+              Need to adjust access, add services, or schedule an extra visit? Your account manager responds within 48 hours.
+            </p>
+          </div>
+        </li>
       </ol>
     </div>
   </section>
 
-  <section class="testimonials" id="testimonials">
-    <div class="container section-heading">
-      <h2>Loved by homeowners and businesses across Austin</h2>
-      <p>Clients keep coming back to Xtreme Cleaning TX because we sweat every detail on every visit.</p>
-    </div>
-    <div class="container testimonial-grid">
-      {testimonials.map((testimonial) => (
-        <figure class="testimonial-card">
-          <blockquote class="testimonial-quote">&ldquo;{testimonial.quote}&rdquo;</blockquote>
-          <figcaption class="testimonial-author">
-            {testimonial.name}
-            <span class="testimonial-location"> - {testimonial.location}</span>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
-  </section>
-
-  <section class="service-areas" id="areas">
-    <div class="container section-heading">
-      <h2>Serving Austin and the surrounding communities</h2>
-      <p>If you are in Central Texas, chances are we are already cleaning near you.</p>
-    </div>
-    <div class="container areas-card">
-      <p>We proudly bring our spotless finish to:</p>
-      <ul>
-        {serviceAreas.map((area) => (
-          <li>{area}</li>
+  <section id="testimonials" class="bg-brand-blue/5 py-20">
+    <div class="mx-auto w-full max-w-6xl px-6 sm:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-serif font-semibold text-brand-blue">Loved by homeowners and businesses across DFW</h2>
+        <p class="mt-4 text-base text-slate-600">
+          Clients rely on Xtreme Cleaning for meticulous results, discreet crews, and proactive communication.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {testimonials.map((testimonial) => (
+          <figure class="flex h-full flex-col justify-between rounded-3xl border border-brand-blue/10 bg-white p-8 shadow-glow">
+            <blockquote class="text-base text-slate-700">&ldquo;{testimonial.quote}&rdquo;</blockquote>
+            <figcaption class="mt-6 text-sm font-semibold text-brand-blue">
+              {testimonial.name}
+              <span class="ml-2 text-xs font-normal text-slate-500">{testimonial.location}</span>
+            </figcaption>
+          </figure>
         ))}
-      </ul>
-      <p class="note">Don't see your neighborhood? Reach out and we'll confirm availability within minutes.</p>
+      </div>
     </div>
   </section>
 
-  <section id="faq">
-    <div class="container section-heading">
-      <h2>Frequently asked questions</h2>
-      <p>Transparent pricing, reliable cleaners, and no surprises.</p>
-    </div>
-    <div class="container faq-list">
-      {faqs.map((faq) => (
-        <details>
-          <summary>{faq.question}</summary>
-          <p>{faq.answer}</p>
-        </details>
-      ))}
-    </div>
-  </section>
-
-  <section class="contact-section" id="contact">
-    <div class="container contact-card">
-      <div>
-        <h2>Ready for a spotless space?</h2>
-        <p>Share a few details and we will build a custom cleaning plan with transparent pricing.</p>
-        <ul class="contact-options">
-          <li><a href="tel:+15125550198">Call or text (512) 555-0198</a></li>
-          <li><a href="mailto:hello@xtemecleaningtx.com">Email hello@xtemecleaningtx.com</a></li>
-          <li>Serving homes, offices, and short-term rentals in Central Texas</li>
+  <section id="reviews" class="bg-white py-20">
+    <div class="mx-auto grid w-full max-w-6xl gap-12 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+      <div class="space-y-5">
+        <h2 class="text-3xl font-serif font-semibold text-brand-blue">Share your experience</h2>
+        <p class="text-base text-slate-600">
+          We celebrate your wins and lean into your feedback. Submit a review and we will verify details before featuring it
+          on our site and marketing channels.
+        </p>
+        <ul class="space-y-3 text-sm text-slate-600">
+          <li class="flex items-start gap-3">
+            <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-brand-gold" aria-hidden="true" />
+            <span>Include property type, service frequency, or standout team members - specifics help future clients.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-brand-gold" aria-hidden="true" />
+            <span>We only share first names and general locations to maintain privacy.</span>
+          </li>
         </ul>
       </div>
-      <form class="contact-form" method="post" action="https://formsubmit.co/hello@xtemecleaningtx.com">
-        <input type="hidden" name="_subject" value="New cleaning request" />
-        <input type="hidden" name="_captcha" value="false" />
-        <label>
-          Full Name
-          <input type="text" name="name" required autocomplete="name" />
+      <form class="space-y-5 rounded-3xl border border-brand-blue/15 bg-white p-8 shadow-glow" method="post" action="#">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="space-y-2 text-sm font-medium text-brand-blue">
+            Full name
+            <input class={inputClasses} type="text" name="reviewer_name" autocomplete="name" required />
+          </label>
+          <label class="space-y-2 text-sm font-medium text-brand-blue">
+            Email (kept private)
+            <input class={inputClasses} type="email" name="reviewer_email" autocomplete="email" required />
+          </label>
+        </div>
+        <label class="space-y-2 text-sm font-medium text-brand-blue">
+          Neighborhood or business name
+          <input class={inputClasses} type="text" name="review_location" placeholder="e.g., Highland Park" />
         </label>
-        <label>
-          Email
-          <input type="email" name="email" required autocomplete="email" />
-        </label>
-        <label>
-          Phone
-          <input type="tel" name="phone" autocomplete="tel" />
-        </label>
-        <label>
-          Service Type
-          <select name="service" required>
-            <option value="">Select a service</option>
-            {services.map((service) => (
-              <option value={service.title}>{service.title}</option>
+        <label class="space-y-2 text-sm font-medium text-brand-blue">
+          Rating
+          <select class={inputClasses} name="review_rating" required>
+            <option value="">Select rating</option>
+            {[5, 4, 3, 2, 1].map((rating) => (
+              <option value={rating}>{rating} stars</option>
             ))}
           </select>
         </label>
-        <label>
+        <label class="space-y-2 text-sm font-medium text-brand-blue">
+          Tell us about your visit
+          <textarea class={textareaClasses} name="review_message" placeholder="What stood out about your cleaning?" required></textarea>
+        </label>
+        <label class="flex items-start gap-3 text-xs text-slate-600">
+          <input class="mt-1 h-4 w-4 rounded border border-slate-300 text-brand-blue focus:ring-brand-blue" type="checkbox" name="review_display_permission" required />
+          <span>I give Xtreme Cleaning permission to share this review on the website and marketing materials.</span>
+        </label>
+        <button class={primaryButton} type="submit">Submit review</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="areas" class="bg-brand-blue/5 py-20">
+    <div class="mx-auto grid w-full max-w-6xl gap-12 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+      <div class="space-y-4">
+        <h2 class="text-3xl font-serif font-semibold text-brand-blue">Serving the entire Dallas-Fort Worth Metroplex</h2>
+        <p class="text-base text-slate-600">
+          From Dallas proper to thriving North Dallas and Tarrant County communities, we have trusted crews near you.
+        </p>
+        <p class="text-sm text-slate-500">
+          Explore our dedicated location pages for detailed coverage, neighborhood expertise, and tailored recommendations.
+        </p>
+        <a class="text-sm font-semibold text-brand-blue hover:text-brand-gold" href="/locations">View all DFW locations</a>
+      </div>
+      <div class="rounded-3xl border border-brand-blue/15 bg-white p-8 shadow-glow">
+        <p class="text-sm font-semibold text-brand-blue">Featured service areas:</p>
+        <ul class="mt-6 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
+          {locationList.slice(0, 8).map((location) => (
+            <li class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-brand-gold" aria-hidden="true" />
+              {location.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="bg-white py-20">
+    <div class="mx-auto grid w-full max-w-6xl gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+      <div class="space-y-4">
+        <h2 class="text-3xl font-serif font-semibold text-brand-blue">Frequently asked questions</h2>
+        <p class="text-base text-slate-600">Transparent pricing, reliable crews, and adaptable programs for DFW locals.</p>
+      </div>
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="group rounded-2xl border border-brand-blue/10 bg-white p-6 shadow-sm transition">
+            <summary class="flex cursor-pointer items-center justify-between text-base font-semibold text-brand-blue">
+              <span>{faq.question}</span>
+              <span class="ml-4 text-brand-gold transition group-open:rotate-180">&#9662;</span>
+            </summary>
+            <p class="mt-4 text-sm text-slate-600">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="bg-brand-blue py-20 text-white">
+    <div class="mx-auto grid w-full max-w-6xl gap-12 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+      <div class="space-y-5">
+        <h2 class="text-3xl font-serif font-semibold text-white">Ready for a spotless space?</h2>
+        <p class="text-base text-white/80">
+          Share a few details and we will build a custom cleaning plan with transparent pricing for your Dallas-Fort Worth property.
+        </p>
+        <ul class="space-y-3 text-sm text-white/80">
+          <li><a class="hover:text-white" href="tel:+15125550198">Call or text (512) 555-0198</a></li>
+          <li><a class="hover:text-white" href="mailto:hello@xtemecleaningtx.com">Email hello@xtemecleaningtx.com</a></li>
+          <li>Serving homes, offices, and luxury rentals throughout the DFW Metroplex</li>
+        </ul>
+      </div>
+      <form class="space-y-5 rounded-3xl bg-white/10 p-8 shadow-xl backdrop-blur" method="post" action="https://formsubmit.co/hello@xtemecleaningtx.com">
+        <input type="hidden" name="_subject" value="New cleaning request" />
+        <input type="hidden" name="_captcha" value="false" />
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="space-y-2 text-sm font-medium text-white">
+            Full Name
+            <input class={inputClasses} type="text" name="name" required autocomplete="name" />
+          </label>
+          <label class="space-y-2 text-sm font-medium text-white">
+            Email
+            <input class={inputClasses} type="email" name="email" required autocomplete="email" />
+          </label>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="space-y-2 text-sm font-medium text-white">
+            Phone
+            <input class={inputClasses} type="tel" name="phone" autocomplete="tel" />
+          </label>
+          <label class="space-y-2 text-sm font-medium text-white">
+            Service Type
+            <select class={inputClasses} name="service" required>
+              <option value="">Select a service</option>
+              {serviceList.map((service) => (
+                <option value={service.title}>{service.title}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <label class="space-y-2 text-sm font-medium text-white">
           Preferred Timing
-          <input type="text" name="timing" placeholder="e.g., Weekday mornings" />
+          <input class={inputClasses} type="text" name="timing" placeholder="e.g., Weekday mornings" />
         </label>
-        <label>
+        <label class="space-y-2 text-sm font-medium text-white">
           Tell us about your space
-          <textarea name="message" placeholder="Square footage, rooms, priorities..." required></textarea>
+          <textarea class={textareaClasses} name="message" placeholder="Square footage, rooms, priorities..." required></textarea>
         </label>
-        <button class="btn" type="submit">Request my estimate</button>
-        <small>We respond within one business day. No contracts required.</small>
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <button class={primaryButton} type="submit">Request my estimate</button>
+          <small class="text-xs text-white/70">
+            We respond within one business day. No contracts required.
+          </small>
+        </div>
       </form>
     </div>
   </section>
 </Layout>
-
-
 

@@ -1,53 +1,67 @@
-# Xtreme Cleaning TX Website
+﻿# Xtreme Cleaning DFW Website
 
 ## Overview
-This project contains the marketing website for Xtreme Cleaning TX, a professional residential and commercial cleaning service in Central Texas. The site is built with [Astro](https://astro.build) for fast static delivery and comes with a production-ready [Caddy](https://caddyserver.com) configuration to serve the generated `dist` output with sensible security and caching defaults.
+This repository contains the marketing site for **Xtreme Cleaning**, a luxury residential, rental, and commercial cleaning company serving the Dallas–Fort Worth Metroplex. The site is built with [Astro 5](https://astro.build) and styled with [Tailwind CSS 3](https://tailwindcss.com) via the official Astro integration. It ships as a fully static bundle that can be hosted on any CDN or static host, and includes an optional [Caddy](https://caddyserver.com) configuration for secure local or production delivery.
 
-## Key Features
-- Responsive landing page highlighting services, process, testimonials, and contact information.
-- LocalBusiness JSON-LD schema, Open Graph, and Twitter metadata for SEO and rich sharing.
-- Accessible layouts with skip navigation, semantic headings, and keyboard-friendly controls.
-- FormSubmit-powered contact form (replace with your preferred backend or CRM if needed).
-- Caddyfile tuned for static hosting, compression, security headers, and SPA-style fallbacks.
+## Highlights
+- Modern DFW-focused landing page covering hero messaging, services, locations, testimonials, FAQs, and a lead capture form.
+- Dedicated landing pages for each service (`/services/*`) and key Metroplex locations (`/locations/*`) generated from shared data modules for consistent SEO copy.
+- Standalone `/process`, `/reviews`, and `/contact` pages linked from the global header so every navigation item resolves site-wide.
+- LocalBusiness JSON-LD schema, Open Graph, and Twitter metadata baked in for rich search and social sharing.
+- Accessible foundations: skip navigation, semantic markup, focus-visible styles, and responsive layouts.
+- FormSubmit-powered inquiry forms that are easy to swap for a custom backend when ready.
 
 ## Tech Stack
-- Astro 4 (static site output)
-- Vanilla CSS (`src/styles/global.css`)
-- Caddy web server (optional for local preview of the built output)
+- Astro 5 (static site generation)
+- Tailwind CSS 3 with `@astrojs/tailwind`
 - Node.js 18+ and npm
+- Optional: Caddy web server for serving the built `dist/` folder
+
+## Project Structure
+```
+src/
+  data/                Shared service & location copy
+  layouts/Layout.astro Global page shell, navigation, metadata
+  pages/
+    index.astro        Home / marketing landing page
+    services/          Service listing & detail pages
+    locations/         Metroplex location listing & detail pages
+    process.astro      4-step engagement overview
+    reviews.astro      Social proof + review submission form
+    contact.astro      Primary lead form & contact info
+```
+Tailwind styles live in `src/styles/tailwind.css`, and configuration is in `tailwind.config.js`.
 
 ## Getting Started
 ```bash
 npm install
 npm run dev
 ```
-Visit `http://localhost:4321/` to develop with live reload.
+The dev server runs at `http://localhost:4321/` with hot reload.
 
-## Building for Production
+## Production Build
 ```bash
 npm run build
 ```
-The static site will be emitted to `dist/`. Inspect the output or integrate it into your hosting workflow (S3, Netlify, Vercel, etc.).
+Static assets are emitted to `dist/`. Deploy that folder to your hosting provider (S3, Netlify, Vercel, Cloudflare Pages, etc.).
 
-## Previewing with Caddy
-1. Ensure `npm run build` has produced the latest `dist/` directory.
-2. Install Caddy locally (https://caddyserver.com/docs/install).
-3. From the project root, run:
-   ```bash
-   caddy run --config Caddyfile
-   ```
-4. Open the address printed in the terminal (defaults to `https://xtemecleaningtx.com:443` if certificates are available or `http://localhost:2019` for local testing). Adjust site addresses in `Caddyfile` as needed, and make sure `logs/` is writable.
+### Preview with Caddy (optional)
+```bash
+npm run build
+caddy run --config Caddyfile
+```
+Adjust the site address and TLS settings inside `Caddyfile` for your environment.
 
 ## Customization Checklist
-- Update phone number, email, and service area text in `src/pages/index.astro`.
-- Replace placeholder Open Graph image URLs in both `Layout.astro` and `index.astro`.
-- Point the contact form `action` to your production endpoint.
-- Review structured data (`structuredData` object in `index.astro`) for accuracy.
+- Update phone/email and CTA copy in `src/layouts/Layout.astro`, `src/pages/index.astro`, and `src/pages/contact.astro`.
+- Refresh structured data and Open Graph images (`Layout.astro`, `index.astro`).
+- Edit service/location content in `src/data/services.js` and `src/data/locations.js` – pages pull directly from those modules.
+- Swap the FormSubmit endpoints with your CRM or serverless functions when ready for production.
 
 ## Testing
-- `npm run build` ensures the Astro compiler succeeds before deployment.
+- `npm run build` – ensures the Astro compiler and Tailwind pipeline succeed before deploying.
 
-## Deployment Tips
-- Commit and push the generated source (not the `dist/` folder) to version control.
-- If using Caddy in production, keep TLS certificates, logging paths, and process supervision (systemd, Docker, etc.) in mind.
-- Consider automating builds with GitHub Actions or your preferred CI to produce the static artifacts.
+## Deployment Notes
+- Commit source files (not the contents of `dist/`).
+- Use your CI/CD of choice to run `npm ci && npm run build` and publish the generated static assets.
+- When using Caddy in production, configure persistent TLS storage, logging, and process supervision.

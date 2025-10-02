@@ -1,0 +1,104 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { services as serviceList } from "../data/services.js";
+
+const pageTitle = "Our Cleaning Process | Xtreme Cleaning Dallas-Fort Worth";
+const description =
+  "See how Xtreme Cleaning guides Dallas-Fort Worth clients from consultation to consistent white-glove results with a four-step process.";
+const canonical = "https://www.xtemecleaningtx.com/process";
+const image = "https://dummyimage.com/1200x630/0a1f44/ffffff&text=Cleaning+Process";
+
+const steps = [
+  {
+    title: "Schedule a consultation",
+    detail:
+      "Tell us about your property, access preferences, surfaces, and timing. We can tour in person or virtually to understand every detail.",
+  },
+  {
+    title: "Approve a tailored program",
+    detail:
+      "Receive a transparent proposal outlining cadence, crew notes, premium products, and optional concierge add-ons.",
+  },
+  {
+    title: "Enjoy consistent sparkle",
+    detail:
+      "Your dedicated team follows a room-by-room checklist, documents every visit with photos, and resets your space to your preferred staging.",
+  },
+  {
+    title: "Refine anytime",
+    detail:
+      "Account managers respond within 48 hours to adjust schedules, expand services, or prepare for a special event or turnover.",
+  },
+];
+---
+<Layout title={pageTitle} description={description} canonical={canonical} image={image}>
+  <section class="bg-white py-20">
+    <div class="mx-auto w-full max-w-5xl px-6 sm:px-8">
+      <p class="text-xs font-medium uppercase tracking-[0.35em] text-brand-gold">How it works</p>
+      <h1 class="mt-4 text-4xl font-serif font-semibold text-brand-blue">Concierge-level cleaning in four dependable steps</h1>
+      <p class="mt-6 text-base text-slate-600">
+        Every Dallas-Fort Worth engagement starts with listening. From estates and penthouses to corporate suites and rental
+        portfolios, our process adapts to your access, security, and lifestyle expectations.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-brand-blue/5 py-20">
+    <div class="mx-auto grid w-full max-w-6xl gap-8 px-6 sm:px-8 md:grid-cols-2">
+      {steps.map((step, index) => (
+        <article class="flex h-full flex-col rounded-3xl border border-brand-blue/10 bg-white p-8 shadow-glow">
+          <span class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue text-sm font-semibold text-white">
+            {`${index + 1}`.padStart(2, "0")}
+          </span>
+          <h2 class="text-xl font-serif font-semibold text-brand-blue">{step.title}</h2>
+          <p class="mt-3 text-sm text-slate-600">{step.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="mx-auto w-full max-w-5xl px-6 sm:px-8">
+      <h2 class="text-2xl font-serif font-semibold text-brand-blue">Popular programs to pair with your walkthrough</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {serviceList.slice(0, 3).map((service) => (
+          <article class="rounded-3xl border border-brand-blue/10 bg-brand-blue/5 p-6">
+            <h3 class="text-lg font-serif font-semibold text-brand-blue">{service.title}</h3>
+            <p class="mt-3 text-sm text-slate-600">{service.description}</p>
+            <a class="mt-4 inline-flex items-center text-sm font-semibold text-brand-blue hover:text-brand-gold" href={`/services/${service.slug}`}>
+              Explore service
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-blue py-16 text-white">
+    <div class="mx-auto grid w-full max-w-5xl gap-8 px-6 sm:px-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-serif font-semibold text-white">Ready to begin?</h2>
+        <p class="text-sm text-white/80">
+          Share your address, preferred schedule, and any must-have details. We will confirm your consultation and provide
+          a checklist preview within one business day.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a class="inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-blue shadow-glow transition hover:bg-brand-light" href="/contact">
+            Request a consultation
+          </a>
+          <a class="inline-flex items-center rounded-full border border-white px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href="/services">
+            Browse services
+          </a>
+        </div>
+      </div>
+      <div class="space-y-3 text-sm text-white/80">
+        <p>Included with every program:</p>
+        <ul class="space-y-2">
+          <li>Dedicated account manager for scheduling and updates</li>
+          <li>Photo-documented visits stored for your reference</li>
+          <li>Premium, eco-forward products safe for children and pets</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

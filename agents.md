@@ -1,8 +1,9 @@
-# Codex Agent Notes
+﻿# Codex Agent Notes
 
 - Project root: `c:/Users/enrique/projects/xtemecleaningtx`
-- Framework: Astro (`npm run dev`, `npm run build`)
-- Styling: `src/styles/global.css`
-- Server config: `Caddyfile` serves `dist/`
-- Primary page: `src/pages/index.astro` (contains content and schema data)
-- Keep files ASCII-only unless user requests otherwise
+- Framework: Astro 5 (`npm run dev`, `npm run build`)
+- Styling: Tailwind CSS via `@astrojs/tailwind` (`src/styles/tailwind.css`, `tailwind.config.js`)
+- Shared content: `src/data/services.js` & `src/data/locations.js` drive service/location pages
+- Key routes: `/` (`src/pages/index.astro`), `/services/*`, `/locations/*`, `/process`, `/reviews`, `/contact`
+- Server config: `Caddyfile` serves the built `dist/`
+- Keep files ASCII-only unless the user explicitly requests otherwise

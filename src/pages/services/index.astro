@@ -1,0 +1,46 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { services as serviceList } from "../../data/services.js";
+
+const pageTitle = "Our Dallas-Fort Worth Cleaning Services | Xtreme Cleaning";
+const description =
+  "Explore luxury cleaning services from Xtreme Cleaning for DFW residences, rentals, offices, and specialty projects.";
+const canonical = "https://www.xtemecleaningtx.com/services";
+const image = "https://dummyimage.com/1200x630/0a1f44/ffffff&text=Services";
+---
+<Layout title={pageTitle} description={description} canonical={canonical} image={image}>
+  <section class="bg-white py-20">
+    <div class="mx-auto w-full max-w-5xl px-6 sm:px-8">
+      <p class="text-xs font-medium uppercase tracking-[0.35em] text-brand-gold">Services</p>
+      <h1 class="mt-4 text-4xl font-serif font-semibold text-brand-blue">Luxury cleaning tailored to every DFW property</h1>
+      <p class="mt-6 max-w-3xl text-base text-slate-600">
+        Choose a signature program or combine services to match your lifestyle, property type, and brand standards. Every
+        engagement includes a dedicated account manager, detailed checklists, and premium products safe for even the most
+        delicate finishes.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-brand-blue/5 py-20">
+    <div class="mx-auto grid w-full max-w-6xl gap-8 px-6 sm:px-8 md:grid-cols-2">
+      {serviceList.map((service) => (
+        <article class="flex h-full flex-col rounded-3xl border border-brand-blue/10 bg-white p-8 shadow-glow">
+          <h2 class="text-2xl font-serif font-semibold text-brand-blue">{service.title}</h2>
+          <p class="mt-4 text-sm text-slate-600">{service.description}</p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-600">
+            {service.checklist.map((item) => (
+              <li class="flex gap-3">
+                <span class="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-gold" aria-hidden="true" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <a class="mt-8 text-sm font-semibold text-brand-blue hover:text-brand-gold" href={`/services/${service.slug}`}>
+            Explore {service.title}
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>
+

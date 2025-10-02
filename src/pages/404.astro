@@ -1,24 +1,26 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const title = "Page Not Found | Xtreme Cleaning TX";
-const description = "Sorry, we could not find that page. Explore our professional cleaning services in Austin and Central Texas.";
+const title = "Page Not Found | Xtreme Cleaning";
+const description = "The page you requested could not be found. Discover luxury cleaning services across the Dallas-Fort Worth Metroplex.";
 const canonical = "https://www.xtemecleaningtx.com/404";
 ---
 <Layout title={title} description={description} canonical={canonical}>
-  <section class="hero">
-    <div class="container hero__grid">
-      <div>
-        <p class="eyebrow">Error 404</p>
-        <h1>We just cleaned this page away.</h1>
-        <p class="lead">
-          The page you are looking for may have moved or no longer exists. Head back to the homepage to keep exploring
-          our services.
-        </p>
-        <div class="cta-group">
-          <a class="btn" href="/">Return home</a>
-          <a class="btn secondary" href="/#contact">Request a cleaning</a>
-        </div>
+  <section class="bg-brand-blue/5 py-24">
+    <div class="mx-auto w-full max-w-4xl px-6 text-center sm:px-8">
+      <p class="text-xs font-medium uppercase tracking-[0.35em] text-brand-gold">Error 404</p>
+      <h1 class="mt-6 text-4xl font-serif font-semibold text-brand-blue">We just tidied this page away.</h1>
+      <p class="mt-4 text-base text-slate-600">
+        The page you were looking for is unavailable. Explore our Dallas-Fort Worth services or reach out to schedule a
+        consultation with our concierge team.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a class="inline-flex items-center rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-brand-blue/90" href="/">
+          Return home
+        </a>
+        <a class="inline-flex items-center rounded-full border border-brand-blue px-6 py-3 text-sm font-semibold text-brand-blue transition hover:bg-brand-blue/5" href="/contact">
+          Request a consultation
+        </a>
       </div>
     </div>
   </section>

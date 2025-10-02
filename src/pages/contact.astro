@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { services as serviceList } from "../data/services.js";
+
+const pageTitle = "Contact Xtreme Cleaning | Dallas-Fort Worth";
+const description =
+  "Request a consultation or estimate from Xtreme Cleaning. We serve luxury residences, rentals, and commercial properties across the Dallas-Fort Worth Metroplex.";
+const canonical = "https://www.xtemecleaningtx.com/contact";
+const image = "https://dummyimage.com/1200x630/0a1f44/ffffff&text=Contact+Xtreme+Cleaning";
+
+const inputClasses =
+  "w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 shadow-sm transition focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/40";
+const textareaClasses = `${inputClasses} min-h-[180px] resize-y`;
+---
+<Layout title={pageTitle} description={description} canonical={canonical} image={image}>
+  <section class="bg-white py-20">
+    <div class="mx-auto grid w-full max-w-6xl gap-12 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+      <div class="space-y-6">
+        <p class="text-xs font-medium uppercase tracking-[0.35em] text-brand-gold">Contact</p>
+        <h1 class="text-4xl font-serif font-semibold text-brand-blue">Let's design your cleaning program</h1>
+        <p class="text-base text-slate-600">
+          Share a few details about your Dallas-Fort Worth property and we will respond with scheduling options, pricing, and
+          a tailored checklist within one business day.
+        </p>
+        <div class="space-y-3 text-sm text-slate-600">
+          <p><strong class="font-semibold text-brand-blue">Call or text:</strong> <a class="hover:text-brand-blue" href="tel:+15125550198">(512) 555-0198</a></p>
+          <p><strong class="font-semibold text-brand-blue">Email:</strong> <a class="hover:text-brand-blue" href="mailto:hello@xtemecleaningtx.com">hello@xtemecleaningtx.com</a></p>
+          <p><strong class="font-semibold text-brand-blue">Hours:</strong> Weekdays 8 AM - 6 PM, Saturdays 9 AM - 2 PM</p>
+        </div>
+        <div class="space-y-2 text-sm text-slate-600">
+          <p><strong class="font-semibold text-brand-blue">What to expect next:</strong></p>
+          <ul class="space-y-2">
+            <li>We confirm your message and propose a walkthrough time.</li>
+            <li>You receive a detailed checklist, pricing, and optional concierge add-ons.</li>
+            <li>Service begins with your dedicated, background-checked team.</li>
+          </ul>
+        </div>
+      </div>
+      <form class="space-y-5 rounded-3xl border border-brand-blue/10 bg-brand-blue/5 p-8 shadow-glow" method="post" action="https://formsubmit.co/hello@xtemecleaningtx.com">
+        <input type="hidden" name="_subject" value="New cleaning request" />
+        <input type="hidden" name="_captcha" value="false" />
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="space-y-2 text-sm font-medium text-brand-blue">
+            Full name
+            <input class={inputClasses} type="text" name="name" required autocomplete="name" />
+          </label>
+          <label class="space-y-2 text-sm font-medium text-brand-blue">
+            Email
+            <input class={inputClasses} type="email" name="email" required autocomplete="email" />
+          </label>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="space-y-2 text-sm font-medium text-brand-blue">
+            Phone
+            <input class={inputClasses} type="tel" name="phone" autocomplete="tel" />
+          </label>
+          <label class="space-y-2 text-sm font-medium text-brand-blue">
+            Service type
+            <select class={inputClasses} name="service" required>
+              <option value="">Select a service</option>
+              {serviceList.map((service) => (
+                <option value={service.title}>{service.title}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <label class="space-y-2 text-sm font-medium text-brand-blue">
+          Preferred timing
+          <input class={inputClasses} type="text" name="timing" placeholder="e.g., Weekly mornings" />
+        </label>
+        <label class="space-y-2 text-sm font-medium text-brand-blue">
+          Tell us about your space
+          <textarea class={textareaClasses} name="message" placeholder="Square footage, property type, priorities, access notes..." required></textarea>
+        </label>
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <button class="inline-flex items-center rounded-full bg-brand-blue px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-brand-blue/90" type="submit">
+            Request my estimate
+          </button>
+          <small class="text-xs text-slate-500">We respond within one business day.</small>
+        </div>
+      </form>
+    </div>
+  </section>
+</Layout>

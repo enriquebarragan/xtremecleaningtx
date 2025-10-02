@@ -1,0 +1,146 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { services as serviceList } from "../data/services.js";
+
+const pageTitle = "Client Reviews | Xtreme Cleaning Dallas-Fort Worth";
+const description =
+  "See why homeowners, property managers, and business leaders across Dallas-Fort Worth choose Xtreme Cleaning for luxury-level service.";
+const canonical = "https://www.xtemecleaningtx.com/reviews";
+const image = "https://dummyimage.com/1200x630/0a1f44/ffffff&text=Client+Reviews";
+
+const testimonials = [
+  {
+    quote:
+      "Our Uptown condo has never looked better. The crew understands high-end finishes and always sends photos before they lock up.",
+    name: "Taylor M.",
+    location: "Dallas, Uptown",
+  },
+  {
+    quote:
+      "Turnovers near AT&T Stadium used to be stressful. Now our rentals are staged, stocked, and spotless hours before guests arrive.",
+    name: "Jordan P.",
+    location: "Arlington",
+  },
+  {
+    quote:
+      "Xtreme Cleaning maintains our Fort Worth office after hours. The team is discreet, consistent, and communicates proactively.",
+    name: "Elizabeth R.",
+    location: "Fort Worth",
+  },
+  {
+    quote:
+      "They handled our Highland Park renovation detail with museum-level care. Even the contractor was impressed.",
+    name: "Chris L.",
+    location: "Dallas, Highland Park",
+  },
+];
+
+const inputClasses =
+  "w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 shadow-sm transition focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/40";
+const textareaClasses = `${inputClasses} min-h-[160px] resize-y`;
+---
+<Layout title={pageTitle} description={description} canonical={canonical} image={image}>
+  <section class="bg-white py-20">
+    <div class="mx-auto w-full max-w-5xl px-6 sm:px-8 text-center">
+      <p class="text-xs font-medium uppercase tracking-[0.35em] text-brand-gold">Reviews</p>
+      <h1 class="mt-4 text-4xl font-serif font-semibold text-brand-blue">Trusted by luxury residences and workplaces across DFW</h1>
+      <p class="mt-6 text-base text-slate-600">
+        From recurring home cleanings to executive suites and event turnovers, our clients value predictable quality,
+        discreet crews, and proactive communication.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-brand-blue/5 py-20">
+    <div class="mx-auto grid w-full max-w-6xl gap-8 px-6 sm:px-8 md:grid-cols-2">
+      {testimonials.map((testimonial) => (
+        <figure class="flex h-full flex-col justify-between rounded-3xl border border-brand-blue/10 bg-white p-8 shadow-glow">
+          <blockquote class="text-base text-slate-700">&ldquo;{testimonial.quote}&rdquo;</blockquote>
+          <figcaption class="mt-6 text-sm font-semibold text-brand-blue">
+            {testimonial.name}
+            <span class="ml-2 text-xs font-normal text-slate-500">{testimonial.location}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-white py-20">
+    <div class="mx-auto grid w-full max-w-6xl gap-12 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+      <div class="space-y-5">
+        <h2 class="text-3xl font-serif font-semibold text-brand-blue">Share your experience</h2>
+        <p class="text-base text-slate-600">
+          Tell us about your latest visit. We review every submission to celebrate the wins, coach our teams, and keep
+          refining our process across Dallas-Fort Worth.
+        </p>
+        <ul class="space-y-3 text-sm text-slate-600">
+          <li>Include property type, service cadence, or standout team members so we can pass along kudos.</li>
+          <li>We only publish first names and general locations to keep your information private.</li>
+        </ul>
+      </div>
+      <form class="space-y-5 rounded-3xl border border-brand-blue/15 bg-brand-blue/5 p-8 shadow-glow" method="post" action="#">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="space-y-2 text-sm font-medium text-brand-blue">
+            Full name
+            <input class={inputClasses} type="text" name="reviewer_name" autocomplete="name" required />
+          </label>
+          <label class="space-y-2 text-sm font-medium text-brand-blue">
+            Email (kept private)
+            <input class={inputClasses} type="email" name="reviewer_email" autocomplete="email" required />
+          </label>
+        </div>
+        <label class="space-y-2 text-sm font-medium text-brand-blue">
+          Neighborhood or business name
+          <input class={inputClasses} type="text" name="review_location" placeholder="e.g., Southlake" />
+        </label>
+        <label class="space-y-2 text-sm font-medium text-brand-blue">
+          Rating
+          <select class={inputClasses} name="review_rating" required>
+            <option value="">Select rating</option>
+            {[5, 4, 3, 2, 1].map((rating) => (
+              <option value={rating}>{rating} stars</option>
+            ))}
+          </select>
+        </label>
+        <label class="space-y-2 text-sm font-medium text-brand-blue">
+          Tell us about your visit
+          <textarea class={textareaClasses} name="review_message" placeholder="What impressed you about the cleaning?" required></textarea>
+        </label>
+        <label class="flex items-start gap-3 text-xs text-slate-600">
+          <input class="mt-1 h-4 w-4 rounded border border-slate-300 text-brand-blue focus:ring-brand-blue" type="checkbox" name="review_display_permission" required />
+          <span>I give Xtreme Cleaning permission to feature this review online and in marketing materials.</span>
+        </label>
+        <button class="inline-flex items-center rounded-full bg-brand-blue px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-brand-blue/90" type="submit">
+          Submit review
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <section class="bg-brand-blue py-16 text-white">
+    <div class="mx-auto grid w-full max-w-5xl gap-8 px-6 sm:px-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-serif font-semibold text-white">Ready for your own five-star experience?</h2>
+        <p class="text-sm text-white/80">
+          Request a walkthrough and we will craft a detailed checklist for your property, timeline, and service goals.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a class="inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-blue shadow-glow transition hover:bg-brand-light" href="/contact">
+            Request a consultation
+          </a>
+          <a class="inline-flex items-center rounded-full border border-white px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10" href="/services">
+            Explore services
+          </a>
+        </div>
+      </div>
+      <div class="space-y-3 text-sm text-white/80">
+        <p>Every visit includes:</p>
+        <ul class="space-y-2">
+          <li>Dedicated, background-checked specialists</li>
+          <li>Premium, eco-forward supplies and equipment</li>
+          <li>Photo-documented results and next-step recommendations</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
