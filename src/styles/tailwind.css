@@ -24,3 +24,32 @@ img {
   display: block;
 }
 
+@layer components {
+  .rating {
+    @apply flex flex-row-reverse justify-end gap-2;
+  }
+
+  .rating input {
+    @apply sr-only;
+  }
+
+  .rating label {
+    @apply cursor-pointer;
+  }
+
+  .rating label svg {
+    @apply h-7 w-7 text-slate-400 transition-colors duration-200 ease-in-out;
+  }
+
+  .rating label:hover svg,
+  .rating label:hover ~ label svg,
+  .rating input:checked + label svg,
+  .rating input:checked + label ~ label svg {
+    @apply text-brand-gold;
+  }
+
+  .rating input:focus-visible + label svg {
+    outline: 2px solid #0a1f44;
+    outline-offset: 4px;
+  }
+}

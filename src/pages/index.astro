@@ -8,6 +8,7 @@ const description =
   "Xtreme Cleaning is the trusted luxury cleaning partner for residences, rentals, and commercial spaces across Dallas, Fort Worth, and the greater DFW Metroplex.";
 const canonical = "https://www.xtemecleaningtx.com/";
 const image = "https://dummyimage.com/1200x630/0a1f44/ffffff&text=Xtreme+Cleaning";
+const heroImage = "/images/hero/placeholder.svg";
 
 const heroHighlights = [
   "Bonded, insured, and background-checked cleaning specialists",
@@ -20,6 +21,8 @@ const heroBenefits = [
   "Photo-documented visits with proactive communication",
   "Dallas-Fort Worth crews who respect your time and privacy",
 ];
+
+const ratingOptions = [1, 2, 3, 4, 5];
 
 const stats = [
   { value: "12+", label: "Years elevating spaces across DFW" },
@@ -339,15 +342,36 @@ const structuredData = {
           Neighborhood or business name
           <input class={inputClasses} type="text" name="review_location" placeholder="e.g., Highland Park" />
         </label>
-        <label class="space-y-2 text-sm font-medium text-brand-blue">
-          Rating
-          <select class={inputClasses} name="review_rating" required>
-            <option value="">Select rating</option>
-            {[5, 4, 3, 2, 1].map((rating) => (
-              <option value={rating}>{rating} stars</option>
-            ))}
-          </select>
-        </label>
+        <div class="space-y-2 text-sm font-medium text-brand-blue">
+          <span>Rating</span>
+          <div class="rating" role="radiogroup" aria-label="Rating">
+            {ratingOptions.map((value) => [
+              <input
+                id={`home-review-rating-${value}`}
+                class="sr-only"
+                type="radio"
+                name="review_rating"
+                value={value}
+                required={value === 5}
+              />,
+              <label class="cursor-pointer" for={`home-review-rating-${value}`}>
+                <span class="sr-only">{`${value} star${value > 1 ? "s" : ""}`}</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-7 w-7"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </label>
+            ])}
+          </div>
+        </div>
         <label class="space-y-2 text-sm font-medium text-brand-blue">
           Tell us about your visit
           <textarea class={textareaClasses} name="review_message" placeholder="What stood out about your cleaning?" required></textarea>
@@ -466,4 +490,8 @@ const structuredData = {
     </div>
   </section>
 </Layout>
+
+
+
+
 
